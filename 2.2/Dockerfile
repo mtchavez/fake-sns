@@ -4,7 +4,7 @@ ENV APP_DIR=/usr/src/app
 ENV MESSAGES_DIR=/usr/local/sns_message
 ENV SNS_PORT=9292
 
-RUN set -x  &&\
+RUN set -x  && \
 	apk add --no-cache --virtual \
         .build-deps \
         gcc \
@@ -19,6 +19,9 @@ WORKDIR $APP_DIR
 
 COPY Gemfile $APP_DIR/
 RUN bundle install
+
+RUN apk del .build-deps git && \
+    rm -rf /tmp/*
 
 RUN addgroup -S docker && \
     adduser -S -G docker docker && \
