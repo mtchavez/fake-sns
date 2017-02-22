@@ -1,4 +1,5 @@
 FROM ruby:2.2-alpine
+MAINTAINER 'Chavez <matthew@el-chavez.me>'
 
 ENV APP_DIR=/usr/src/app
 ENV MESSAGES_DIR=/usr/local/sns_message
