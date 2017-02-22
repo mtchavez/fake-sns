@@ -9,7 +9,6 @@ RUN set -x  && \
 	apk add --no-cache --virtual \
         .build-deps \
         gcc \
-        git \
         g++ \
         linux-headers \
         musl-dev \
@@ -36,5 +35,4 @@ EXPOSE $SNS_PORT
 CMD fake_sns \
         --bind 0.0.0.0 \
         --database=$MESSAGES_DIR/database.yml \
-        --port $SNS_PORT \
-        --server thin
+        --port $SNS_PORT
