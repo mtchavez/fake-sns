@@ -20,9 +20,6 @@ WORKDIR $APP_DIR
 COPY Gemfile $APP_DIR/
 RUN bundle install
 
-RUN apk del .build-deps git && \
-    rm -rf /tmp/*
-
 RUN addgroup -S docker && \
     adduser -S -G docker docker && \
     mkdir -p $MESSAGES_DIR && \
